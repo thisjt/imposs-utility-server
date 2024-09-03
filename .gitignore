@@ -1,3 +1,5 @@
 endpoints/backup/files/**/*
+endpoints/analytics/logs/**/*
+
 node_modules
 .env

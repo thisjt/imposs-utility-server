@@ -2,6 +2,8 @@ import multer from 'multer';
 import crypto from 'crypto';
 import fs from 'fs';
 
+if (!fs.existsSync('./files')) fs.mkdirSync('./files');
+
 const authKey = process.env.BACKUPAUTHKEY;
 const uniqueRuntimeId = crypto.randomBytes(40).toString('hex');
 
