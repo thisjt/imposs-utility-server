@@ -19,7 +19,7 @@ function writeToFile(data, retries = 0) {
 /** @param {import('express').Express} app */
 export default function logging(app) {
 	app.post('/logging', (req, res) => {
-		console.log('logging accessed');
+		console.log('Logging: ', new Date().toLocaleString());
 		writeToFile(JSON.stringify(req.body));
 		res.status(200).json({});
 	});

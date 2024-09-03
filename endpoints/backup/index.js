@@ -51,6 +51,8 @@ function fileFilter(req, file, callback) {
 export default function backup(app) {
 	app.post('/backup', upload.single('file'), (req, res) => {
 		const filename = req.query[uniqueRuntimeId] || '';
+		console.log('Backup: ', new Date().toLocaleString());
+		console.log(` + ${filename}`);
 
 		if (filename) {
 			res.status(200).json({ isBackedUp: true, newlyCreated: true });
