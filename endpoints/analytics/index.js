@@ -8,7 +8,7 @@ setInterval(() => {
 }, 1000 * 60 * 30);
 
 function writeToFile(data, retries = 0) {
-	fs.appendFile(`./endpoints/analytics/logs/${loggerFilename}\n`, `${data}`, (err) => {
+	fs.appendFile(`./endpoints/analytics/logs/${loggerFilename}`, `${data}\n`, (err) => {
 		if (err && retries < 10) {
 			retries++;
 			setTimeout(() => writeToFile(data, retries), 100 + Math.floor(Math.random() * 1000));
