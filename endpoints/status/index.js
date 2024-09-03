@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-if (!fs.existsSync('./logs')) fs.mkdirSync('./logs');
+if (!fs.existsSync('./endpoints/status/logs')) fs.mkdirSync('./endpoints/status/logs');
 
 let loggerFilename = `status-${new Date().toLocaleDateString().replaceAll('/', '-')}.log`;
 setInterval(() => {
@@ -8,7 +8,7 @@ setInterval(() => {
 }, 1000 * 60 * 30);
 
 function writeToFile(data, retries = 0) {
-	fs.appendFile(`./logs/${loggerFilename}`, `${data}`, (err) => {
+	fs.appendFile(`./endpoints/status/logs/${loggerFilename}`, `${data}\n`, (err) => {
 		if (err && retries < 10) {
 			retries++;
 			setTimeout(() => writeToFile(data, retries), 100 + Math.floor(Math.random() * 1000));

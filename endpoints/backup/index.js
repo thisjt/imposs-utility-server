@@ -2,7 +2,7 @@ import multer from 'multer';
 import crypto from 'crypto';
 import fs from 'fs';
 
-if (!fs.existsSync('./files')) fs.mkdirSync('./files');
+if (!fs.existsSync('./endpoints/backup/files')) fs.mkdirSync('./endpoints/backup/files');
 
 const authKey = process.env.BACKUPAUTHKEY;
 const uniqueRuntimeId = crypto.randomBytes(40).toString('hex');
